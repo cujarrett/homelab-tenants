@@ -16,3 +16,10 @@ spec:
     cache:
       enabled: true
       backend: private-cloud
+    connectionPosture: enforce
+    provides:
+      - name: collection
+        allowedCallers:
+          - { namespace: my-vinyl, app: my-vinyl }
+    consumes:
+      - { host: api.discogs.com }
