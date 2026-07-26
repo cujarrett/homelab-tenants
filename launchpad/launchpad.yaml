@@ -18,8 +18,8 @@ spec:
       connect-src 'self' https://mattjarrett.dev https://*.mattjarrett.dev https://login.microsoftonline.com https://*.microsoftonline.com;
       frame-ancestors 'none';
       base-uri 'self';
-    apiProxy:
-      enabled: true
+    apiProxies:
       # /api/ is stripped by nginx before forwarding, so append /api here to
       # preserve the path prefix the Go API expects on its registered routes.
-      upstream: launchpad-api.launchpad.svc.cluster.local/api
+      - path: /api/
+        upstream: launchpad-api.launchpad.svc.cluster.local/api

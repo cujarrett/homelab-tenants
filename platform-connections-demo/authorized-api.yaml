@@ -1,0 +1,16 @@
+apiVersion: platform.local.lab/v1alpha1
+kind: Api
+metadata:
+  name: authorized-api
+spec:
+  parameters:
+    namespace: platform-connections-demo
+    image: ghcr.io/cujarrett/platform-connections-demo-caller:sha-29fe034420be8d78e18bbf3bd42cb8abed281dcc
+    repo: https://github.com/cujarrett/platform-connections-demo
+    port: 8080
+    replicas: 1
+    connectionPosture: enforce
+    # Reaching upstream-api needs nothing here — that call is granted on upstream-api
+    # itself. Only the off-platform destination has to be registered.
+    consumes:
+      - { host: api.open-meteo.com }

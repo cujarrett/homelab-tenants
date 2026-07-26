@@ -1,0 +1,17 @@
+apiVersion: platform.local.lab/v1alpha1
+kind: Api
+metadata:
+  name: upstream-api
+spec:
+  parameters:
+    namespace: platform-connections-demo
+    image: ghcr.io/cujarrett/platform-connections-demo-api:sha-29fe034420be8d78e18bbf3bd42cb8abed281dcc
+    repo: https://github.com/cujarrett/platform-connections-demo
+    port: 8080
+    replicas: 1
+    connectionPosture: enforce
+    # No host, so nothing but a declared caller can reach this API.
+    provides:
+      - name: data
+        allowedCallers:
+          - { namespace: platform-connections-demo, app: authorized-api }
