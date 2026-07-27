@@ -1,0 +1,23 @@
+apiVersion: platform.local.lab/v1alpha1
+kind: Api
+metadata:
+  name: neon-factory-api
+spec:
+  parameters:
+    namespace: guest-neon-factory
+    image: ghcr.io/cujarrett/hello-world-api:latest
+    port: 8080
+    replicas: 1
+    host: demo5-api.mattjarrett.dev
+    tlsSecret: demo5-api-tls
+    sqlRef:
+      name: neon-factory-sql
+      backend: private-cloud
+    nosqlRef:
+      name: neon-factory-nosql
+    objectStorageRefs:
+      - name: neon-factory-store
+    cache:
+      enabled: true
+      backend: private-cloud
+    readinessCheckPath: /readyz
