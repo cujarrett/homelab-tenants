@@ -1,8 +1,0 @@
-apiVersion: platform.local.lab/v1alpha1
-kind: ObjectStorage
-metadata:
-  name: neon-factory-store
-spec:
-  parameters:
-    namespace: guest-neon-factory
-    dataRetention: delete
