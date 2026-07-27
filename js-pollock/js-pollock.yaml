@@ -5,7 +5,7 @@ metadata:
 spec:
   parameters:
     namespace: js-pollock
-    image: ghcr.io/cujarrett/js-pollock:sha-2743e2b858386d692dfdcc58b5c8314f0061dcb7
+    image: ghcr.io/cujarrett/js-pollock:sha-1bfd2671e458560caacc9444166f1d293f9e21e9
     repo: https://github.com/cujarrett/js-pollock
     connectionPosture: enforce
     host: jspollock.mattjarrett.dev
