@@ -1,0 +1,20 @@
+apiVersion: platform.local.lab/v1alpha1
+kind: Spa
+metadata:
+  name: connections-demo
+spec:
+  parameters:
+    namespace: platform-connections-demo
+    image: ghcr.io/cujarrett/platform-connections-demo-spa:sha-0151084cf57d0cfa817a5d6a402c3c5ee89f0eb2
+    repo: https://github.com/cujarrett/platform-connections-demo
+    host: connections.mattjarrett.dev
+    tlsIssuer: letsencrypt-prod
+    replicas: 1
+    size: xs
+    connectionPosture: enforce
+    contentSecurityPolicy: "default-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self';"
+    apiProxies:
+      - path: /authorized/
+        upstream: authorized-api.platform-connections-demo.svc.cluster.local
+      - path: /unauthorized/
+        upstream: unauthorized-api.platform-connections-demo.svc.cluster.local

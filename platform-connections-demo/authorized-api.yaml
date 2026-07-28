@@ -12,5 +12,9 @@ spec:
     connectionPosture: enforce
     # Reaching upstream-api needs nothing here — that call is granted on upstream-api
     # itself. Only the off-platform destination has to be registered.
+    provides:
+      - name: demo
+        allowedCallers:
+          - { namespace: platform-connections-demo, app: connections-demo }
     consumes:
       - { host: api.open-meteo.com }

@@ -12,3 +12,7 @@ spec:
     connectionPosture: enforce
     # Identical image and code to authorized-api. It declares nothing and is granted
     # nothing, so every call it makes fails — that difference is the whole test.
+    provides:
+      - name: demo
+        allowedCallers:
+          - { namespace: platform-connections-demo, app: connections-demo }
