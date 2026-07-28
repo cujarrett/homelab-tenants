@@ -1,0 +1,8 @@
+apiVersion: platform.local.lab/v1alpha1
+kind: NoSql
+metadata:
+  name: golden-pickle-nosql
+spec:
+  parameters:
+    namespace: guest-golden-pickle
+    dataRetention: delete
