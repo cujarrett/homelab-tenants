@@ -1,0 +1,9 @@
+apiVersion: platform.local.lab/v1alpha1
+kind: Sql
+metadata:
+  name: rubber-llama-sql
+spec:
+  parameters:
+    namespace: guest-rubber-llama
+    backend: private-cloud
+    dataRetention: delete
