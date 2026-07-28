@@ -5,7 +5,7 @@ metadata:
 spec:
   parameters:
     namespace: mattjarrett-dev
-    image: ghcr.io/cujarrett/mattjarrett.dev:sha-b8e2171b5380f04abcabbbc239b3b46be0010ad3
+    image: ghcr.io/cujarrett/mattjarrett.dev:sha-679041e64fa907d6e300141f7fcd39ec7522a10c
     repo: https://github.com/cujarrett/mattjarrett.dev
     connectionPosture: enforce
     host: mattjarrett.dev
