@@ -1,0 +1,9 @@
+apiVersion: platform.local.lab/v1alpha1
+kind: Sql
+metadata:
+  name: neon-toaster-sql
+spec:
+  parameters:
+    namespace: guest-neon-toaster
+    backend: private-cloud
+    dataRetention: delete
