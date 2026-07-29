@@ -61,7 +61,7 @@ jobs:
             -f message="chore: deploy ${IMAGE##*/} ${SHA_TAG}" \
             -f content="$(echo "$UPDATED" | base64 -w 0)" \
             -f sha="$FILE_SHA" \
-            -f author.name="launchpad 🚀" \
-            -f author.email="launchpad@mattjarrett.dev" \
-            -f committer.name="launchpad 🚀" \
-            -f committer.email="launchpad@mattjarrett.dev"
+            -f "author[name]=launchpad 🚀" \
+            -f "author[email]=launchpad@mattjarrett.dev" \
+            -f "committer[name]=launchpad 🚀" \
+            -f "committer[email]=launchpad@mattjarrett.dev"
