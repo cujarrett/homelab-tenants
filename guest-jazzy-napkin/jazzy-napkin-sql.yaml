@@ -1,0 +1,9 @@
+apiVersion: platform.local.lab/v1alpha1
+kind: Sql
+metadata:
+  name: jazzy-napkin-sql
+spec:
+  parameters:
+    namespace: guest-jazzy-napkin
+    backend: private-cloud
+    dataRetention: delete
