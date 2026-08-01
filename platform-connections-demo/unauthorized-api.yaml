@@ -10,8 +10,10 @@ spec:
     port: 8080
     replicas: 1
     connectionPosture: enforce
-    # Identical image and code to authorized-api. It declares nothing and is granted
-    # nothing, so every call it makes fails — that difference is the whole test.
+    # Same image as authorized-api. Declares its way out, then upstream-api refuses it.
+    # Drop this consumes and the call dies at gate 1 as a 502 — red for the wrong reason.
+    consumes:
+      - { namespace: platform-connections-demo, app: upstream-api }
     provides:
       - name: demo
         allowedCallers:
