@@ -1,0 +1,9 @@
+apiVersion: platform.local.lab/v1alpha1
+kind: Sql
+metadata:
+  name: quantum-pirate-sql
+spec:
+  parameters:
+    namespace: guest-quantum-pirate
+    backend: private-cloud
+    dataRetention: delete
