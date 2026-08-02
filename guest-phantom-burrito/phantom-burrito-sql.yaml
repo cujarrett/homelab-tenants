@@ -1,0 +1,9 @@
+apiVersion: platform.local.lab/v1alpha1
+kind: Sql
+metadata:
+  name: phantom-burrito-sql
+spec:
+  parameters:
+    namespace: guest-phantom-burrito
+    backend: private-cloud
+    dataRetention: delete
