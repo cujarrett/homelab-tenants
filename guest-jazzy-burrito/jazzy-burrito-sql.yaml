@@ -1,9 +1,0 @@
-apiVersion: platform.local.lab/v1alpha1
-kind: Sql
-metadata:
-  name: jazzy-burrito-sql
-spec:
-  parameters:
-    namespace: guest-jazzy-burrito
-    backend: private-cloud
-    dataRetention: delete
