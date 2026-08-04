@@ -1,8 +1,0 @@
-apiVersion: platform.local.lab/v1alpha1
-kind: NoSql
-metadata:
-  name: electric-pretzel-nosql
-spec:
-  parameters:
-    namespace: guest-electric-pretzel
-    dataRetention: delete
