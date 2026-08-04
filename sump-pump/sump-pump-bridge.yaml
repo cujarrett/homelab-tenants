@@ -13,7 +13,7 @@ spec:
     # off until the platform can declare a bare LAN IP. This bridge calls the Shelly
     # device at 192.168.10.188 directly, and consumes.host renders a DNS ServiceEntry,
     # which cannot express an address. Under enforce that call is blackholed at gate 1.
-    connectionPosture: off
+    connectionPosture: "off"
     topicRef:
       name: home-appliances
     secretRef:
