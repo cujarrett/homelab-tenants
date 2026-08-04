@@ -9,3 +9,7 @@ spec:
     repo: https://github.com/cujarrett/weather-exporter
     port: 8080
     metricsPort: 8080
+    connectionPosture: enforce
+    # The only call it makes. Nothing else on the internet is reachable.
+    consumes:
+      - { host: api.open-meteo.com }

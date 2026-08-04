@@ -10,6 +10,7 @@ spec:
     port: 8080
     host: sump-pump-bridge.local.lab
     tlsIssuer: local-lab-ca-issuer
+    connectionPosture: enforce
     topicRef:
       name: home-appliances
     secretRef:
