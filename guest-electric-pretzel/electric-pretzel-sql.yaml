@@ -1,0 +1,9 @@
+apiVersion: platform.local.lab/v1alpha1
+kind: Sql
+metadata:
+  name: electric-pretzel-sql
+spec:
+  parameters:
+    namespace: guest-electric-pretzel
+    backend: private-cloud
+    dataRetention: delete
