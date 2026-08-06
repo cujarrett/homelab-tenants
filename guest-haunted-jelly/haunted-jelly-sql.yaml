@@ -1,0 +1,9 @@
+apiVersion: platform.local.lab/v1alpha1
+kind: Sql
+metadata:
+  name: haunted-jelly-sql
+spec:
+  parameters:
+    namespace: guest-haunted-jelly
+    backend: private-cloud
+    dataRetention: delete
