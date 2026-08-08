@@ -1,8 +1,0 @@
-apiVersion: platform.local.lab/v1alpha1
-kind: NoSql
-metadata:
-  name: jazzy-napkin-nosql
-spec:
-  parameters:
-    namespace: guest-jazzy-napkin
-    dataRetention: delete
