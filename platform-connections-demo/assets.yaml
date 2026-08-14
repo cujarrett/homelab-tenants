@@ -5,5 +5,5 @@ metadata:
 spec:
   parameters:
     namespace: platform-connections-demo
-    # Demo data only — nothing here survives a round trip, so there is nothing to keep.
+    # Demo data only - nothing here survives a round trip, so there is nothing to keep.
     dataRetention: delete

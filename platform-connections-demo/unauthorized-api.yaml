@@ -11,7 +11,7 @@ spec:
     replicas: 1
     connectionPosture: enforce
     # Same image as authorized-api. Declares its way out, then upstream-api refuses it.
-    # Drop this consumes and the call dies at gate 1 as a 502 — red for the wrong reason.
+    # Drop this consumes and the call dies at gate 1 as a 502 - red for the wrong reason.
     consumes:
       - { namespace: platform-connections-demo, app: upstream-api }
     provides:

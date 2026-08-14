@@ -41,7 +41,7 @@ subjects:
 ---
 # Allows launchpad-api to read the 10 pre-provisioned demo slot TLS secrets from
 # the demo-certs namespace so it can copy them into guest workspace namespaces.
-# resourceNames locks this down to exactly those secrets — no other secrets in
+# resourceNames locks this down to exactly those secrets - no other secrets in
 # demo-certs are readable by this SA.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -82,7 +82,7 @@ subjects:
 # binding status to SSE clients. Kubernetes RBAC cannot scope a ClusterRole to a
 # namespace prefix, so the grant is cluster-wide; filtering to guest-* namespaces
 # is enforced in extractPodStatus before any data is broadcast. Scoped to
-# get/list/watch only — the SA cannot create, update, or delete pods.
+# get/list/watch only - the SA cannot create, update, or delete pods.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -106,14 +106,14 @@ subjects:
     namespace: launchpad
 ---
 # Allows launchpad-api to copy TLS secrets into dynamically-created guest
-# namespaces. Scoped to create-only — the SA cannot read, list, update, or
+# namespaces. Scoped to create-only - the SA cannot read, list, update, or
 # delete secrets through this grant.
 #
 # This ClusterRole is broader than the actual use case: RBAC cannot express
 # "create only in guest-* namespaces, only these 10 names" (no namespace-prefix
 # selector, and resourceNames does not apply to create). The real scoping is
 # enforced at admission time by a ValidatingAdmissionPolicy in the homelab repo
-# — see cluster/policies/launchpad-guest-secret-scope.yaml. That policy is the
+# - see cluster/policies/launchpad-guest-secret-scope.yaml. That policy is the
 # actual boundary; this ClusterRole alone would allow creating a Secret in any
 # namespace with any name.
 apiVersion: rbac.authorization.k8s.io/v1

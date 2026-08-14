@@ -4,7 +4,7 @@ XR instance files for all workspace apps running on the [homelab](https://github
 
 ## Structure
 
-Each top-level directory is a tenant namespace, and every directory becomes one ArgoCD Application automatically. Files inside are flat — one YAML per resource, named after the resource it creates.
+Each top-level directory is a tenant namespace, and every directory becomes one ArgoCD Application automatically. Files inside are flat - one YAML per resource, named after the resource it creates.
 
 ```
 <namespace>/
@@ -13,15 +13,15 @@ Each top-level directory is a tenant namespace, and every directory becomes one 
   <xr-instance-name>.yaml
 ```
 
-Most files are Crossplane XR instances — the `kind` tells you which XRD. A few directories carry plain Kubernetes manifests alongside them (`launchpad/rbac.yaml`, `sump-pump/sump-pump-bridge-nodeport.yaml`); anything ArgoCD can apply is allowed.
+Most files are Crossplane XR instances - the `kind` tells you which XRD. A few directories carry plain Kubernetes manifests alongside them (`launchpad/rbac.yaml`, `sump-pump/sump-pump-bridge-nodeport.yaml`); anything ArgoCD can apply is allowed.
 
-The `namespace.yaml` is not optional. ArgoCD syncs with `CreateNamespace=true` and would make the namespace on its own, but the one it makes has no labels — so the workload never gets an Istio sidecar.
+The `namespace.yaml` is not optional. ArgoCD syncs with `CreateNamespace=true` and would make the namespace on its own, but the one it makes has no labels - so the workload never gets an Istio sidecar.
 
-Directories named `guest-<word>-<word>` — `guest-quantum-pickle`, say — are written and deleted by `launchpad-api` through the GitHub API as guest sandboxes come and go. Never hand-edit them. Each one carries a `guest.yaml` holding its creation time and which of the five fixed DNS slots it was given; the slot is what decides its public hostname, and it has nothing to do with the name. Every other directory is hand-maintained.
+Directories named `guest-<word>-<word>` - `guest-quantum-pickle`, say - are written and deleted by `launchpad-api` through the GitHub API as guest sandboxes come and go. Never hand-edit them. Each one carries a `guest.yaml` holding its creation time and which of the five fixed DNS slots it was given; the slot is what decides its public hostname, and it has nothing to do with the name. Every other directory is hand-maintained.
 
 ## How deploys work
 
-CI in each source repo calls the reusable workflow at `.github/workflows/update-image-tag.yml` after pushing a new image. The workflow writes the new SHA tag back to the relevant file here. The `xrs` ApplicationSet in the cluster generates one Application per top-level directory, so ArgoCD picks up the commit and syncs the app — and a brand new directory becomes a new Application with no cluster-side change.
+CI in each source repo calls the reusable workflow at `.github/workflows/update-image-tag.yml` after pushing a new image. The workflow writes the new SHA tag back to the relevant file here. The `xrs` ApplicationSet in the cluster generates one Application per top-level directory, so ArgoCD picks up the commit and syncs the app - and a brand new directory becomes a new Application with no cluster-side change.
 
 See [homelab](https://github.com/cujarrett/homelab) for cluster infra, platform compositions, and ArgoCD bootstrap config.
 
@@ -46,7 +46,7 @@ deploy:
 
 ### Namespace override
 
-For a repo that lives in a different namespace — `sump-pump-bridge` deploys into `sump-pump`.
+For a repo that lives in a different namespace - `sump-pump-bridge` deploys into `sump-pump`.
 
 ```yaml
 deploy:
@@ -85,4 +85,4 @@ Delete the XR from the cluster first, then the directory. The other order orphan
 kubectl delete <kind> <name> -n <namespace>   # Crossplane cascade-deletes composed resources
 ```
 
-Then remove `<namespace>/` from this repo and push — ArgoCD prunes the Application.
+Then remove `<namespace>/` from this repo and push - ArgoCD prunes the Application.
