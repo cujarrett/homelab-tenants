@@ -10,8 +10,6 @@ spec:
     port: 8080
     replicas: 1
     connectionPosture: enforce
-    entra:
-      enabled: true
     # Same image as authorized-api. Declares its way out, then upstream-api refuses it.
     # Drop this consumes and the call dies at gate 1 as a 502 - red for the wrong reason.
     consumes:
