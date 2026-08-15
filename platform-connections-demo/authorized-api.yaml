@@ -13,10 +13,8 @@ spec:
       enabled: true
     connectionPosture: enforce
     # AWS endpoints are not declared in consumes - binding to a resource is the
-    # declaration, so the platform registers S3, DynamoDB and the credential
-    # endpoints from these two refs alone.
-    objectStorageRefs:
-      - name: assets
+    # declaration, so the platform registers DynamoDB and the credential endpoints
+    # from this ref alone.
     nosqlRef:
       name: records
     # Out is declared here, in is granted on upstream-api. Both must hold.

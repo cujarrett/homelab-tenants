@@ -1,9 +1,0 @@
-apiVersion: platform.local.lab/v1alpha1
-kind: ObjectStorage
-metadata:
-  name: assets
-spec:
-  parameters:
-    namespace: platform-connections-demo
-    # Demo data only - nothing here survives a round trip, so there is nothing to keep.
-    dataRetention: delete
