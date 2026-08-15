@@ -10,8 +10,23 @@ spec:
     port: 8080
     replicas: 1
     connectionPosture: enforce
+    entra:
+      enabled: true
+      roles:
+        - name: Data.Read
+          allowedCallers:
+            - { namespace: platform-connections-demo, app: authorized-api }
     # No host, so nothing but a declared caller can reach this API.
     provides:
       - name: data
+        paths: ["/api/v1/data"]
         allowedCallers:
           - { namespace: platform-connections-demo, app: authorized-api }
+      # Letting unauthorized-api in here is the point - the mesh stops separating the
+      # two so the refusal comes from Entra. Drop it and the demo shows a 403 from the
+      # wrong gate.
+      - name: protected
+        paths: ["/api/v1/protected"]
+        allowedCallers:
+          - { namespace: platform-connections-demo, app: authorized-api }
+          - { namespace: platform-connections-demo, app: unauthorized-api }
