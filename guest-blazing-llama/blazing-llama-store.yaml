@@ -1,8 +1,0 @@
-apiVersion: platform.local.lab/v1alpha1
-kind: ObjectStorage
-metadata:
-  name: blazing-llama-store
-spec:
-  parameters:
-    namespace: guest-blazing-llama
-    dataRetention: delete
