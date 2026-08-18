@@ -1,0 +1,9 @@
+apiVersion: platform.local.lab/v1alpha1
+kind: Sql
+metadata:
+  name: fuzzy-factory-sql
+spec:
+  parameters:
+    namespace: guest-fuzzy-factory
+    backend: private-cloud
+    dataRetention: delete
