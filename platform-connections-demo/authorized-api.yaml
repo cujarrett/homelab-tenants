@@ -5,7 +5,7 @@ metadata:
 spec:
   parameters:
     namespace: platform-connections-demo
-    image: ghcr.io/cujarrett/platform-connections-demo-downstream:sha-265927ccfe0c5895f3b728c9adec31f7e7d8b758
+    image: ghcr.io/cujarrett/platform-connections-demo-downstream:sha-dca286e647b6521e0889f1f780af0aa42c235a0e
     repo: https://github.com/cujarrett/platform-connections-demo
     port: 8080
     replicas: 1
