@@ -2,9 +2,9 @@ apiVersion: platform.local.lab/v1alpha1
 kind: Api
 metadata:
   name: my-vinyl-api
+  namespace: my-vinyl
 spec:
   parameters:
-    namespace: my-vinyl
     image: ghcr.io/cujarrett/my-vinyl-api:sha-2097dba1ffbcd977d309b4747d4c21eb992b64fc
     repo: https://github.com/cujarrett/my-vinyl-api
     port: 8080

@@ -2,9 +2,9 @@ apiVersion: platform.local.lab/v1alpha1
 kind: Api
 metadata:
   name: unauthorized-api
+  namespace: platform-connections-demo
 spec:
   parameters:
-    namespace: platform-connections-demo
     image: ghcr.io/cujarrett/platform-connections-demo-downstream:sha-f33b6faed71182da9b460ef1565632de2e63d0d4
     repo: https://github.com/cujarrett/platform-connections-demo
     port: 8080

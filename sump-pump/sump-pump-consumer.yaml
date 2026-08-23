@@ -2,9 +2,9 @@ apiVersion: platform.local.lab/v1alpha1
 kind: Api
 metadata:
   name: sump-pump-consumer
+  namespace: sump-pump
 spec:
   parameters:
-    namespace: sump-pump
     image: ghcr.io/cujarrett/sump-pump-consumer:sha-3aa32cddb46fcd963d8e947b0eecb496317b68ea
     repo: https://github.com/cujarrett/sump-pump-consumer
     port: 8080

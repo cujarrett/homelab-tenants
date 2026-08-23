@@ -2,9 +2,9 @@ apiVersion: platform.local.lab/v1alpha1
 kind: Api
 metadata:
   name: sump-pump-bridge
+  namespace: sump-pump
 spec:
   parameters:
-    namespace: sump-pump
     image: ghcr.io/cujarrett/sump-pump-bridge:sha-01e4288d21bd743e845654017b53d52ace9f1056
     repo: https://github.com/cujarrett/sump-pump-bridge
     port: 8080

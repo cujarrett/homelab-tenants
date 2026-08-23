@@ -2,7 +2,7 @@ apiVersion: platform.local.lab/v1alpha1
 kind: NoSql
 metadata:
   name: records
+  namespace: platform-connections-demo
 spec:
   parameters:
-    namespace: platform-connections-demo
     dataRetention: delete

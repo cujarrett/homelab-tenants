@@ -2,6 +2,7 @@ apiVersion: platform.local.lab/v1alpha1
 kind: Wordpress
 metadata:
   name: kentjarrett-com
+  namespace: kentjarrett-com
 spec:
   parameters:
     host: kentjarrett.com

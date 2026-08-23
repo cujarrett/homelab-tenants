@@ -2,9 +2,9 @@ apiVersion: platform.local.lab/v1alpha1
 kind: Spa
 metadata:
   name: my-vinyl
+  namespace: my-vinyl
 spec:
   parameters:
-    namespace: my-vinyl
     image: ghcr.io/cujarrett/my-vinyl:sha-08ade6af1e3047efa43e455642ecd626654ec5d4
     repo: https://github.com/cujarrett/my-vinyl
     host: myvinyl.mattjarrett.dev

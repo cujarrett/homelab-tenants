@@ -4,11 +4,11 @@ apiVersion: platform.local.lab/v1alpha1
 kind: Spa
 metadata:
   name: launchpad
+  namespace: launchpad
 spec:
   parameters:
     image: ghcr.io/cujarrett/launchpad:sha-00664d5d97c425583847d2b6f933253e5edec30f
     repo: https://github.com/cujarrett/launchpad
-    namespace: launchpad
     host: launchpad.mattjarrett.dev
     tlsIssuer: letsencrypt-prod
     size: sm

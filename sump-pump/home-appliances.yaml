@@ -2,6 +2,7 @@ apiVersion: platform.local.lab/v1alpha1
 kind: Topic
 metadata:
   name: home-appliances
+  namespace: sump-pump
 spec:
   parameters:
     streamName: HOME-APPLIANCES

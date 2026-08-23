@@ -4,11 +4,11 @@ apiVersion: platform.local.lab/v1alpha1
 kind: Api
 metadata:
   name: launchpad-api
+  namespace: launchpad
 spec:
   parameters:
     image: ghcr.io/cujarrett/launchpad-api:sha-fbf5352e277e63d6f9c445c15dc03d575860d2bf
     repo: https://github.com/cujarrett/launchpad-api
-    namespace: launchpad
     port: 8080
     metricsPort: 8080
     size: sm

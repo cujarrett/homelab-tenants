@@ -2,9 +2,9 @@ apiVersion: platform.local.lab/v1alpha1
 kind: Spa
 metadata:
   name: js-pollock
+  namespace: js-pollock
 spec:
   parameters:
-    namespace: js-pollock
     image: ghcr.io/cujarrett/js-pollock:sha-3d2e1e6be4275c198df0c42d41bf787dbe38c278
     repo: https://github.com/cujarrett/js-pollock
     host: jspollock.mattjarrett.dev

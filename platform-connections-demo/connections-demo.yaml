@@ -2,9 +2,9 @@ apiVersion: platform.local.lab/v1alpha1
 kind: Spa
 metadata:
   name: connections-demo
+  namespace: platform-connections-demo
 spec:
   parameters:
-    namespace: platform-connections-demo
     image: ghcr.io/cujarrett/platform-connections-demo-spa:sha-bec0b7091432bbb2cfd6ae5169516234ea647e30
     repo: https://github.com/cujarrett/platform-connections-demo
     host: connections.mattjarrett.dev
