@@ -10,11 +10,10 @@ spec:
     port: 8080
     host: sump-pump-bridge.local.lab
     tlsIssuer: local-lab-ca-issuer
-    # off until the platform can declare a bare LAN IP. This bridge calls the Shelly
-    # device at 192.168.10.188 directly, and consumes.host renders a DNS ServiceEntry,
-    # which cannot express an address. Under enforce that call is blackholed at gate 1.
-    connectionPosture: "off"
+    # The Shelly device has no DNS name, so this is declared by address. A host
+    # entry would render a DNS ServiceEntry, which cannot resolve a bare IP.
+    consumes:
+      - { address: 192.168.10.188, port: 80, protocol: HTTP }
     topicRef:
       name: home-appliances
-    secretRef:
-      name: sump-pump-bridge-config
+    secretsFrom: [sump-pump-bridge-config]

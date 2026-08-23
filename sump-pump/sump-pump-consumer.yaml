@@ -9,6 +9,5 @@ spec:
     repo: https://github.com/cujarrett/sump-pump-consumer
     port: 8080
     scrapeInterval: "10s"
-    connectionPosture: enforce
     subscriptionRef:
       name: sump-pump-monitor

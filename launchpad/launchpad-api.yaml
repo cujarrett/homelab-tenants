@@ -12,5 +12,4 @@ spec:
     port: 8080
     metricsPort: 8080
     size: sm
-    secretRef:
-      name: launchpad-secrets
+    secretsFrom: [launchpad-secrets]

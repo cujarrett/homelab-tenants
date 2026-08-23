@@ -12,7 +12,6 @@ spec:
     contentSecurityPolicy: "default-src 'self'; connect-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.discogs.com; frame-ancestors 'none'; base-uri 'self';"
     replicas: 1
     size: sm
-    connectionPosture: enforce
     apiProxies:
       - path: /api/
-        upstream: my-vinyl-api.my-vinyl.svc.cluster.local
+        app: my-vinyl-api

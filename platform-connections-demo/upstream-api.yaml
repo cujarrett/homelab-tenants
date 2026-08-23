@@ -9,19 +9,14 @@ spec:
     repo: https://github.com/cujarrett/platform-connections-demo
     port: 8080
     replicas: 1
-    connectionPosture: enforce
-    entra:
-      enabled: true
-      roles:
-        - name: Data.Read
-          allowedCallers:
-            - { namespace: platform-connections-demo, app: authorized-api }
-        # Offered, and held by nobody. Being let in is not the same as being allowed
-        # to do everything once inside.
-        - name: Data.Admin
-          allowedCallers: []
     # No host, so nothing but a declared caller can reach this API.
     provides:
-      - name: data
+      - name: Data.Read
+        auth: workload
         allowedCallers:
           - { namespace: platform-connections-demo, app: authorized-api }
+      # Offered, and held by nobody. Being let in is not the same as being allowed
+      # to do everything once inside.
+      - name: Data.Admin
+        auth: workload
+        allowedCallers: []

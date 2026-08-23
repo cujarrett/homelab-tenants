@@ -11,12 +11,10 @@ spec:
     replicas: 1
     host: my-vinyl-api.local.lab
     tlsIssuer: local-lab-ca-issuer
-    secretRef:
-      name: discogs-credentials
+    secretsFrom: [discogs-credentials]
     cache:
       enabled: true
       backend: private-cloud
-    connectionPosture: enforce
     provides:
       - name: collection
         allowedCallers:

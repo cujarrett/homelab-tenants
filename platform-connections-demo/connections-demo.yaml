@@ -11,10 +11,9 @@ spec:
     tlsIssuer: letsencrypt-prod
     replicas: 1
     size: xs
-    connectionPosture: enforce
     contentSecurityPolicy: "default-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self';"
     apiProxies:
       - path: /authorized/
-        upstream: authorized-api.platform-connections-demo.svc.cluster.local
+        app: authorized-api
       - path: /unauthorized/
-        upstream: unauthorized-api.platform-connections-demo.svc.cluster.local
+        app: unauthorized-api

@@ -19,7 +19,8 @@ spec:
       frame-ancestors 'none';
       base-uri 'self';
     apiProxies:
-      # /api/ is stripped by nginx before forwarding, so append /api here to
-      # preserve the path prefix the Go API expects on its registered routes.
+      # nginx strips /api/ before forwarding, so upstreamPath puts it back for
+      # the Go API, whose routes are registered under that prefix.
       - path: /api/
-        upstream: launchpad-api.launchpad.svc.cluster.local/api
+        app: launchpad-api
+        upstreamPath: /api

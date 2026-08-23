@@ -9,9 +9,6 @@ spec:
     repo: https://github.com/cujarrett/platform-connections-demo
     port: 8080
     replicas: 1
-    entra:
-      enabled: true
-    connectionPosture: enforce
     # AWS endpoints are not declared in consumes - binding to a resource is the
     # declaration, so the platform registers DynamoDB and the credential endpoints
     # from this ref alone.
