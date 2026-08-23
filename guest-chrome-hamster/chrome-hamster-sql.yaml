@@ -1,0 +1,9 @@
+apiVersion: platform.local.lab/v1alpha1
+kind: Sql
+metadata:
+  name: chrome-hamster-sql
+  namespace: guest-chrome-hamster
+spec:
+  parameters:
+    backend: private-cloud
+    dataRetention: delete
