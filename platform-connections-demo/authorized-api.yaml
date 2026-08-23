@@ -17,6 +17,7 @@ spec:
     # Out is declared here, in is granted on upstream-api. Both must hold.
     provides:
       - name: demo
+        auth: mesh
         allowedCallers:
           - { namespace: platform-connections-demo, app: connections-demo }
     consumes:

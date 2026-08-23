@@ -15,5 +15,6 @@ spec:
       - { namespace: platform-connections-demo, app: upstream-api }
     provides:
       - name: demo
+        auth: mesh
         allowedCallers:
           - { namespace: platform-connections-demo, app: connections-demo }

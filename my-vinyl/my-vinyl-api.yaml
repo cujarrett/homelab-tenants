@@ -17,6 +17,7 @@ spec:
       backend: private-cloud
     provides:
       - name: collection
+        auth: mesh
         allowedCallers:
           - { namespace: my-vinyl, app: my-vinyl }
     consumes:
