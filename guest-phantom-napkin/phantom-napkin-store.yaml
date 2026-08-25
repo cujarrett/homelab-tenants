@@ -1,8 +1,0 @@
-apiVersion: platform.local.lab/v1alpha1
-kind: ObjectStorage
-metadata:
-  name: phantom-napkin-store
-  namespace: guest-phantom-napkin
-spec:
-  parameters:
-    dataRetention: delete
