@@ -1,9 +1,0 @@
-apiVersion: platform.local.lab/v1alpha1
-kind: Sql
-metadata:
-  name: midnight-cactus-sql
-  namespace: guest-midnight-cactus
-spec:
-  parameters:
-    backend: private-cloud
-    dataRetention: delete
