@@ -1,0 +1,9 @@
+apiVersion: platform.local.lab/v1alpha1
+kind: Sql
+metadata:
+  name: cosmic-llama-sql
+  namespace: guest-cosmic-llama
+spec:
+  parameters:
+    backend: private-cloud
+    dataRetention: delete
