@@ -1,8 +1,0 @@
-apiVersion: platform.local.lab/v1alpha1
-kind: NoSql
-metadata:
-  name: blazing-penguin-nosql
-  namespace: guest-blazing-penguin
-spec:
-  parameters:
-    dataRetention: delete
