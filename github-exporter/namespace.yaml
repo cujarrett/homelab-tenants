@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: js-pollock
+  name: github-exporter
   labels:
     platform.local.lab/workloads: "true"
     pod-security.kubernetes.io/enforce: restricted

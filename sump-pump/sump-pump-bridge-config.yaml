@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sump-pump-bridge-config
+  namespace: sump-pump
+  annotations:
+    # Ahead of the XR, which mounts this as environment and will not start without it.
+    argocd.argoproj.io/sync-wave: "-1"
+data:
+  SHELLY_ADDR: "192.168.10.188"
+  SHELLY_CALLBACK_BASE: "http://192.168.10.101:30880"
+  WATTS_THRESHOLD: "300"

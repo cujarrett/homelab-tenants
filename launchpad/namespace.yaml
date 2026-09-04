@@ -7,6 +7,8 @@ metadata:
   # provision sandboxes. The istio-proxy sidecar intercepts apiserver :443 and cuts those
   # long-lived watch streams ("watch channel closed, restarting"), so it stays unmeshed.
   labels:
+    platform.local.lab/workloads: "true"
+    istio-injection: disabled
     pod-security.kubernetes.io/enforce: restricted
     pod-security.kubernetes.io/warn: restricted
     pod-security.kubernetes.io/audit: restricted
