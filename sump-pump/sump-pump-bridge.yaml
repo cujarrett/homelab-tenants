@@ -16,4 +16,4 @@ spec:
       - { address: 192.168.10.188, port: 80, protocol: HTTP }
     topicRef:
       name: home-appliances
-    secretsFrom: [sump-pump-bridge-config]
+    configFrom: [sump-pump-bridge-config]

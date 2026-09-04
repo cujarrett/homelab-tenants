@@ -1,0 +1,13 @@
+apiVersion: platform.local.lab/v1alpha1
+kind: Api
+metadata:
+  name: github-exporter
+spec:
+  parameters:
+    namespace: github-exporter
+    image: ghcr.io/cujarrett/github-exporter:main
+    port: 8080
+    configFrom:
+      - github-exporter-config
+    secretsFrom:
+      - github-exporter-token

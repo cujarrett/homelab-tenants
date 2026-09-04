@@ -1,5 +1,6 @@
 # Cluster-internal only - no Ingress, no public hostname.
-# Secrets injected via the launchpad-secrets K8s Secret (create before applying):
+# launchpad-config and launchpad-github-token are hand-created in the cluster, not
+# in git, so both must exist before this applies.
 apiVersion: platform.local.lab/v1alpha1
 kind: Api
 metadata:
@@ -12,4 +13,5 @@ spec:
     port: 8080
     metricsPort: 8080
     size: sm
-    secretsFrom: [launchpad-secrets]
+    configFrom: [launchpad-config]
+    secretsFrom: [launchpad-github-token]
