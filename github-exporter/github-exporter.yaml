@@ -7,6 +7,8 @@ spec:
   parameters:
     image: ghcr.io/cujarrett/github-exporter:main
     port: 8080
+    consumes:
+      - { host: api.github.com }
     configFrom:
       - github-exporter-config
     secretsFrom:
