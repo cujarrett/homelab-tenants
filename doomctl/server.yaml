@@ -1,0 +1,55 @@
+# The Odamex server is long lived and authoritative. It simulates the game and is the
+# one place kills are counted, so the scoreboard reads from here rather than from the
+# player pods, which last one life each.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: doomctl-server
+  namespace: doomctl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: doomctl-server
+  template:
+    metadata:
+      labels:
+        app: doomctl-server
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: odasrv
+          image: ghcr.io/cujarrett/doomctl:main
+          args: ["server"]
+          ports:
+            - name: doom
+              containerPort: 10666
+              protocol: UDP
+          resources:
+            requests:
+              cpu: 50m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            capabilities:
+              drop: ["ALL"]
+            seccompProfile:
+              type: RuntimeDefault
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: doomctl-server
+  namespace: doomctl
+spec:
+  selector:
+    app: doomctl-server
+  ports:
+    - name: doom
+      port: 10666
+      targetPort: doom
+      protocol: UDP
