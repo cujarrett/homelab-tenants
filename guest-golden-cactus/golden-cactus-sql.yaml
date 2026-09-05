@@ -1,0 +1,9 @@
+apiVersion: platform.local.lab/v1alpha1
+kind: Sql
+metadata:
+  name: golden-cactus-sql
+  namespace: guest-golden-cactus
+spec:
+  parameters:
+    backend: private-cloud
+    dataRetention: delete
