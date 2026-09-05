@@ -6,7 +6,7 @@ metadata:
 spec:
   parameters:
     image: ghcr.io/cujarrett/sump-pump-bridge:sha-7391001e3665df866e88853b3aec9facc7862e33
-    repo: https://github.com/cujarrett/sump-pump-bridge
+    repo: https://github.com/cujarrett/sump-pump
     port: 8080
     host: sump-pump-bridge.local.lab
     tlsIssuer: local-lab-ca-issuer

@@ -6,7 +6,7 @@ metadata:
 spec:
   parameters:
     image: ghcr.io/cujarrett/sump-pump-consumer:sha-7391001e3665df866e88853b3aec9facc7862e33
-    repo: https://github.com/cujarrett/sump-pump-consumer
+    repo: https://github.com/cujarrett/sump-pump
     port: 8080
     scrapeInterval: "10s"
     subscriptionRef:
