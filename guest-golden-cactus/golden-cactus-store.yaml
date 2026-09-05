@@ -1,8 +1,0 @@
-apiVersion: platform.local.lab/v1alpha1
-kind: ObjectStorage
-metadata:
-  name: golden-cactus-store
-  namespace: guest-golden-cactus
-spec:
-  parameters:
-    dataRetention: delete
