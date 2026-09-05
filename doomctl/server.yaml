@@ -17,6 +17,11 @@ spec:
         app: doomctl-server
     spec:
       automountServiceAccountToken: false
+      # Set on the pod, not just the container. Istio's injected sidecars set no
+      # seccompProfile of their own, and restricted PSA rejects the whole pod for it.
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: odasrv
           image: ghcr.io/cujarrett/doomctl:main
