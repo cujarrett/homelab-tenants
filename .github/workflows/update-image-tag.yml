@@ -53,15 +53,27 @@ jobs:
           REPO=cujarrett/homelab-workspaces
           SHA_TAG=sha-${GITHUB_SHA}
 
-          FILE_SHA=$(gh api /repos/$REPO/contents/$FILE --jq '.sha')
-          CONTENT=$(gh api /repos/$REPO/contents/$FILE --jq '.content' | tr -d '\n' | base64 -d)
-          UPDATED=$(echo "$CONTENT" | sed "s|image: ${IMAGE}:.*|image: ${IMAGE}:${SHA_TAG}|")
+          # Every repo commits to this one, so a push that lands between the read
+          # and the write returns 409. Re-read and retry rather than fail the deploy.
+          for attempt in 1 2 3 4 5; do
+            FILE_SHA=$(gh api /repos/$REPO/contents/$FILE --jq '.sha')
+            CONTENT=$(gh api /repos/$REPO/contents/$FILE --jq '.content' | tr -d '\n' | base64 -d)
+            UPDATED=$(echo "$CONTENT" | sed "s|image: ${IMAGE}:.*|image: ${IMAGE}:${SHA_TAG}|")
 
-          gh api --method PUT /repos/$REPO/contents/$FILE \
-            -f message="chore: deploy ${IMAGE##*/} ${SHA_TAG}" \
-            -f content="$(echo "$UPDATED" | base64 -w 0)" \
-            -f sha="$FILE_SHA" \
-            -f "author[name]=launchpad 🚀" \
-            -f "author[email]=launchpad@mattjarrett.dev" \
-            -f "committer[name]=launchpad 🚀" \
-            -f "committer[email]=launchpad@mattjarrett.dev"
+            if gh api --method PUT /repos/$REPO/contents/$FILE \
+              -f message="chore: deploy ${IMAGE##*/} ${SHA_TAG}" \
+              -f content="$(echo "$UPDATED" | base64 -w 0)" \
+              -f sha="$FILE_SHA" \
+              -f "author[name]=launchpad 🚀" \
+              -f "author[email]=launchpad@mattjarrett.dev" \
+              -f "committer[name]=launchpad 🚀" \
+              -f "committer[email]=launchpad@mattjarrett.dev"; then
+              exit 0
+            fi
+
+            echo "attempt $attempt lost a race, retrying"
+            sleep $((attempt * 5))
+          done
+
+          echo "could not update $FILE after 5 attempts"
+          exit 1
