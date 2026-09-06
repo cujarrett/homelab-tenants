@@ -5,7 +5,7 @@ metadata:
   namespace: sump-pump
 spec:
   parameters:
-    image: ghcr.io/cujarrett/sump-pump-consumer:sha-de17fe994587553031b8aadb24d21dd717d107ab
+    image: ghcr.io/cujarrett/sump-pump-consumer:sha-9dddbfce9f6a93b6e2d19a28443b5df789fae132
     repo: https://github.com/cujarrett/sump-pump
     port: 8080
     scrapeInterval: "10s"
