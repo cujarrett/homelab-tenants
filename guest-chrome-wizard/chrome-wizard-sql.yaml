@@ -1,9 +1,0 @@
-apiVersion: platform.local.lab/v1alpha1
-kind: Sql
-metadata:
-  name: chrome-wizard-sql
-  namespace: guest-chrome-wizard
-spec:
-  parameters:
-    backend: private-cloud
-    dataRetention: delete
