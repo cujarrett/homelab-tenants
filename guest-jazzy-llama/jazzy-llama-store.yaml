@@ -1,8 +1,0 @@
-apiVersion: platform.local.lab/v1alpha1
-kind: ObjectStorage
-metadata:
-  name: jazzy-llama-store
-  namespace: guest-jazzy-llama
-spec:
-  parameters:
-    dataRetention: delete
