@@ -65,3 +65,33 @@ subjects:
   - kind: ServiceAccount
     name: launchpad-api
     namespace: launchpad
+---
+# launchpad-api pushes a workspace directory to Git and then tells ArgoCD to look
+# now, rather than letting the sandbox wait out the ApplicationSet's 60s requeue.
+# Pinned to the xrs ApplicationSet. Applications are deliberately left out - patch
+# cannot be limited to one field, so granting it would let this pod repoint any
+# Application at another repo and have the cluster-admin controller apply it.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: launchpad-api-argo-refresh
+  namespace: argocd
+rules:
+  - apiGroups: ["argoproj.io"]
+    resources: ["applicationsets"]
+    resourceNames: ["xrs"]
+    verbs: ["get", "patch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: launchpad-api-argo-refresh
+  namespace: argocd
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: launchpad-api-argo-refresh
+subjects:
+  - kind: ServiceAccount
+    name: launchpad-api
+    namespace: launchpad
