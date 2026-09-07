@@ -1,0 +1,9 @@
+apiVersion: platform.local.lab/v1alpha1
+kind: Sql
+metadata:
+  name: magic-napkin-sql
+  namespace: guest-magic-napkin
+spec:
+  parameters:
+    backend: private-cloud
+    dataRetention: delete
