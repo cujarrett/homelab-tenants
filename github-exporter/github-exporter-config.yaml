@@ -9,4 +9,4 @@ metadata:
 data:
   GITHUB_ORG: cujarrett
   # The calendar-day merge count has to roll over when the dashboard's readers do.
-  TZ: America/New_York
+  TZ: America/Chicago
